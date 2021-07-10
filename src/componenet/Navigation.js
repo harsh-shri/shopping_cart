@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../CartContext';
 
 const Navigation = () => {
 	const cartStyle = {
@@ -7,28 +9,23 @@ const Navigation = () => {
 		padding: "6px 12px",
 		borderRadius: "50px"
 	}
-	let auto = {
-		margin: 'auto',
-		maxWidth: '1200px'
-	};
+	const { cart } = useContext(CartContext);
+
 	return (
 		<>
-			<nav className="container mx-auto flex items-center justify-between py-2" style={auto}>
-				<Link to="/">
+			<nav className="container mx-auto flex items-center justify-between py-2 lg:w-3/4 w-full">
+				<Link className ="font-bold" to="/">
 					<img className="mr-2" style={{ height: 45, display: 'inline-block' }} src="/images/logo.png" alt="logo" />
 					Pizza
 				</Link>
 				<ul className="flex items-center">
 					<li className="ml-6">
-						<Link to="/">Home</Link>
-					</li>
-					<li className="ml-6">
-						<Link to="/products">Products</Link>
+						<Link className ="font-bold" to="/">Home</Link>
 					</li>
 					<li className="ml-6">
 						<Link to="/cart">
 							<div style={cartStyle}>
-								<span>10</span>
+								<span>{cart.totalItems ? cart.totalItems : 0}</span>
 								<img className="ml-2" style={{ height: 20, filter: "invert(1)" }} src="/images/cart.png" alt="cart-icon" />
 							</div>
 						</Link>

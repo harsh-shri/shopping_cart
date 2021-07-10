@@ -3,7 +3,6 @@ import { useParams, useHistory } from 'react-router-dom';
 const SingleProduct = () => {
 	let auto = {
 		margin: '5rem auto',
-		maxWidth: '1200px',
 	};
 	const [product, setProduct] = useState({});
 	const params = useParams(); //to get the corresponding link of the page
@@ -17,7 +16,7 @@ const SingleProduct = () => {
 			});
 	}, [params._id]);
 	return (
-		<div style={auto} className="container mx-auto">
+		<div style={auto} className="container mx-auto lg:w-3/4 w-full">
 			<button className="mb-12 font-bold bg-yellow-500 py-1 px-8 rounded-full" onClick={() => { history.goBack() }}>
 				Back
 			</button>
