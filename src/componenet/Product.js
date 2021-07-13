@@ -5,7 +5,7 @@ import { CartContext } from '../CartContext';
 const Product = (props) => {
     const [isAdding, setIsAdding] = useState(false);
     const { cart, setCart } = useContext(CartContext);
-    const { product } = props;
+    const { product } = props; //Destructuring
 
     const addToCart = (event, product) => {
         event.preventDefault();
